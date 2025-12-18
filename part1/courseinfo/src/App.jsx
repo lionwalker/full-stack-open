@@ -21,7 +21,7 @@ const Content = (props) => {
 }
 
 const Total = (props) => {
-  <p>Number of exercises {props.total}</p>
+  return (<p>Number of exercises {props.total}</p>)
 }
 
 const App = () => {
