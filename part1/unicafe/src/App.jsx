@@ -13,6 +13,20 @@ const Span = ({ category, value }) => {
   )
 }
 
+const Statistics = ({ good, neutral, bad, total, score }) => {
+  return (
+    <div>
+      <Display heading="statistics" />
+      <Span category={'good'} value={good} />
+      <Span category={'neutral'} value={neutral} />
+      <Span category={'bad'} value={bad} />
+      <Span category={'all'} value={total} />
+      <Span category={'average'} value={total > 0 ? score / total : 0} />
+      <Span category={'positive'} value={total > 0 ? (good / total) * 100 + ' %' : '0 %'} />
+    </div>
+  )
+}
+
 const App = () => {
   // save clicks of each button to its own state
   const [good, setGood] = useState(0)
@@ -45,13 +59,7 @@ const App = () => {
       <Button onClick={handleNeutralFeedback} text={'neutral'} />
       <Button onClick={handleBadFeedback} text={'bad'} />
 
-      <Display heading="statistics" />
-      <Span category={'good'} value={good} />
-      <Span category={'neutral'} value={neutral} />
-      <Span category={'bad'} value={bad} />
-      <Span category={'all'} value={total} />
-      <Span category={'average'} value={total > 0 ? score / total : 0} />
-      <Span category={'positive'} value={total > 0 ? (good / total) * 100 + ' %' : '0 %'} />
+      <Statistics good={good} neutral={neutral} bad={bad} total={total} score={score} />
     </div>
   )
 }
