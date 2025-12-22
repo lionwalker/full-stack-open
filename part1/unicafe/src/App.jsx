@@ -18,17 +18,24 @@ const App = () => {
   const [good, setGood] = useState(0)
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
+  const [total, setTotal] = useState(0)
+  const [score, setScore] = useState(0)
 
   const handleGoodFeedback = () => {
+    setScore(score + 1)
     setGood(good + 1)
+    setTotal(total + 1)
   }
 
   const handleNeutralFeedback = () => {
     setNeutral(neutral + 1)
+    setTotal(total + 1)
   }
 
   const handleBadFeedback = () => {
+    setScore(score - 1)
     setBad(bad + 1)
+    setTotal(total + 1)
   }
 
   return (
@@ -42,6 +49,9 @@ const App = () => {
       <Span category={'good'} value={good} />
       <Span category={'neutral'} value={neutral} />
       <Span category={'bad'} value={bad} />
+      <Span category={'all'} value={total} />
+      <Span category={'average'} value={total > 0 ? score / total : 0} />
+      <Span category={'positive'} value={total > 0 ? (good / total) * 100 + ' %' : '0 %'} />
     </div>
   )
 }
