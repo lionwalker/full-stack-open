@@ -1,5 +1,8 @@
 import { useState } from 'react'
 
+const Heading = ({ text }) => {
+  return (<h1>{text}</h1>)
+}
 const Button = ({ onClick, text }) => {
   return (<button onClick={onClick}>{text}</button>)
 }
@@ -20,6 +23,7 @@ const App = () => {
   const [votes, setVotes] = useState(
     Array(anecdotes.length).fill(0)
   )
+  const [mostPopular, setMostPopular] = useState(0)
 
   const getNextAnecdote = () => {
     const next = Math.floor(Math.random() * anecdotes.length)
@@ -27,18 +31,26 @@ const App = () => {
   }
 
   const incrementVote = (anecdote) => {
-    const copy = { ...votes }
+    const copy = [...votes]
     copy[anecdote] += 1
     setVotes(copy)
+    setMostPopular(indexOfMaxVotes(copy))
   }
+
+  const indexOfMaxVotes = (votes) => { return votes.indexOf(Math.max(...votes)) }
 
   return (
     <div>
+      <Heading text={'Anecdote of the day'} />
       {anecdotes[selected]}<br />
-      <span>has {votes[selected]} votes</span><br />
-
+      <p>has {votes[selected]} votes</p><br />
       <Button onClick={() => incrementVote(selected)} text={'vote'} />
       <Button onClick={getNextAnecdote} text={'next anecdote'} />
+
+      <Heading text={'Anecdote with most votes'} />
+      <p>{anecdotes[mostPopular]}</p>
+      <p>has {votes[mostPopular]} votes</p>
+
     </div>
   )
 }
