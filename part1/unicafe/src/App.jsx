@@ -4,7 +4,7 @@ const Display = ({ heading }) => { return (<h1>{heading}</h1>) }
 const Button = ({ onClick, text }) => {
   return (<button onClick={onClick}>{text}</button>)
 }
-const Span = ({ category, value }) => {
+const StatisticLine = ({ category, value }) => {
   return (
     <div>
       <span>{category} {value}</span>
@@ -17,12 +17,12 @@ const Statistics = ({ good, neutral, bad, total, score }) => {
   if (total > 0) {
     return (
       <div>
-        <Span category={'good'} value={good} />
-        <Span category={'neutral'} value={neutral} />
-        <Span category={'bad'} value={bad} />
-        <Span category={'all'} value={total} />
-        <Span category={'average'} value={total > 0 ? score / total : 0} />
-        <Span category={'positive'} value={total > 0 ? (good / total) * 100 + ' %' : '0 %'} />
+        <StatisticLine category={'good'} value={good} />
+        <StatisticLine category={'neutral'} value={neutral} />
+        <StatisticLine category={'bad'} value={bad} />
+        <StatisticLine category={'all'} value={total} />
+        <StatisticLine category={'average'} value={total > 0 ? score / total : 0} />
+        <StatisticLine category={'positive'} value={total > 0 ? (good / total) * 100 + ' %' : '0 %'} />
       </div>
     )
   }
