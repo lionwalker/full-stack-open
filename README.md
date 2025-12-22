@@ -29,6 +29,8 @@ Full Stack Open is a comprehensive introduction to modern web application develo
 ├── part1/
     ├── courseinfo
     ├── unicafe
+    ├── anecdotes
+├── part2/
 └── ...
 ```
 
