@@ -42,9 +42,9 @@ Each part folder contains the exercises completed for that section of the course
 
 | Part | Exercises | Status |
 |------|-----------|--------|
-| 0 | 0/6 | ✅ |
-| 1 | 0/14 | ✅ |
-| 2 | 0/20 | 🔄 |
+| 0 | 6/6 | ✅ |
+| 1 | 14/14 | ✅ |
+| 2 | 5/20 | 🔄 |
 | 3 | 0/22 | ⏳ |
 | 4 | 0/23 | ⏳ |
 | 5 | 0/23 | ⏳ |
